@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('signup','Auth\RegisterController@showRegistrationForm')->name('signup.get');
+
+Route::post('sinup','Auth\RegisterController@register')->name('singup.post');
+
+//->name()はルーティングに名前をつけている
