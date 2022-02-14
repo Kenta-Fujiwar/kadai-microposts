@@ -50,11 +50,11 @@ class User extends Authenticatable
     }
     
     public function follow($userId){
-        $exist = $this->is_following($useId);
+        $exist = $this->is_following($userId);
         
-        $itms_me = $this->id == $userId;
+        $its_me = $this->id == $userId;
         
-        if($exists || $its_me){
+        if($exist || $its_me){
             return false;
         }else{
             $this->followings()->attach($userId);
@@ -96,8 +96,19 @@ class User extends Authenticatable
         return $this->followings()->where('follow_id',$userId)->exists();
     }
     
+    public function feed_microposts(){
+        $userIds = $this->followings()->pluck('users.id')->toArray();
+        
+        $userIds[] = $this->id;
+        
+        
+        return Micropost::whereIn('user_id',$userIds);
+    }
+    
     public function loadRelationshipCounts(){
         
         $this ->loadCount(['microposts','followings','followers']);
     }
+    
+    
 }

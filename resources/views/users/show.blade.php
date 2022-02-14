@@ -17,4 +17,7 @@
             @include('microposts.microposts')
         </div>
     </div>
+    
+    {{-- フォロー／アンフォローボタン --}}
+    {{--@include('user_follow.follow_button') --}}
 @endsection
