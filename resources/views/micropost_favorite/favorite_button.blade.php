@@ -6,6 +6,6 @@
 @else
     {{-- ファボボタンのフォーム --}}
     {!! Form::open(['route' => ['favorites.favorite', $micropost->id]]) !!}
-        {!! Form::submit('Favorite', ['class' => "btn btn-primary btn-sm"]) !!}
+        {!! Form::submit('  Favorite  ', ['class' => "btn btn-success btn-sm"]) !!}
     {!! Form::close() !!}
 @endif

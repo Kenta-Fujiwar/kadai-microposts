@@ -22,7 +22,7 @@
     </li>
     
     <li class="nav-item">
-        <a href="{{ route('users.followers', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followers') ? 'active' : '' }}"> {{--ファボ一覧へのリンク未実装--}}
+        <a href="{{ route('users.favorites', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.favorites') ? 'active' : '' }}"> {{--ファボ一覧へのリンク未実装--}}
             Favorites
             <span class="badge badge-secondary">{{ $user->favorites_count }}</span>
         </a>
